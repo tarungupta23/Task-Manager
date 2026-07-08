@@ -1,7 +1,6 @@
 # TaskDesk — Flask + MySQL Task Manager
 
-A task manager: Flask backend (using `mysql.connector` with a cursor for
-every query), a MySQL database, and a vanilla JS frontend that talks to a
+A task manager: Flask backend, a MySQL database, and a vanilla JS frontend that talks to a
 JSON API for live add / edit / delete without page reloads. Any registered
 user can log in.
 
@@ -19,11 +18,6 @@ mysql -u root -p < schema.sql
 
 This creates the `taskmanager` database with a `users` table and a `tasks`
 table.
-
-> Already ran an older version of this project? That schema added an
-> `is_admin` column that's no longer used. It's harmless to leave in place,
-> or you can drop it with:
-> `ALTER TABLE users DROP COLUMN is_admin;`
 
 ## 3. Set your MySQL password
 
