@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account &middot; TaskDesk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-body">
+  <div class="auth-wrap">
+    <div class="auth-brand">
+      <span class="brand-mark">TD</span>
+      <div>
+        <h1>TaskDesk</h1>
+        <p>Admin control panel</p>
+      </div>
+    </div>
+
+    <div class="auth-card">
+      <div class="auth-card-head">
+        <span class="eyebrow">New account</span>
+        <h2>Register</h2>
+        <p class="auth-sub">Create an account to start managing tasks.</p>
+      </div>
+
+      {% if error %}
+        <div class="alert alert-error">{{ error }}</div>
+      {% endif %}
+
+      <form method="POST" action="{{ url_for('register') }}" class="auth-form" novalidate>
+        <label class="field">
+          <span>Username</span>
+          <input type="text" name="username" placeholder="jane.doe" autocomplete="username" required>
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" placeholder="jane@example.com" autocomplete="email" required>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input type="password" name="password" placeholder="At least 6 characters" autocomplete="new-password" required>
+        </label>
+
+        <label class="field">
+          <span>Confirm password</span>
+          <input type="password" name="confirm_password" placeholder="Repeat password" autocomplete="new-password" required>
+        </label>
+
+        <button type="submit" class="btn btn-primary btn-block">Create account</button>
+      </form>
+
+      <p class="auth-foot">Already have access? <a href="{{ url_for('login') }}">Sign in</a></p>
+    </div>
+  </div>
+</body>
+</html>
